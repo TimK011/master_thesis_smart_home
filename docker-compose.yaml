@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    container_name: server
+    networks:
+      smarthome_net:
+        ipv4_address: 172.20.0.2
+    depends_on:
+      - mosquitto
+    volumes:
+      - server_data:/app/data
+    ports:
+      - "5000:5000"
+
+  client:
+    build: ./client
+    container_name: client
+    networks:
+      smarthome_net:
+        ipv4_address: 172.20.0.3
+    depends_on:
+      - mosquitto
+    volumes:
+      - client_data:/app/data
+
+  mosquitto:
+    build: ./mosquitto
+    container_name: mosquitto
+    networks:
+      smarthome_net:
+        ipv4_address: 172.20.0.4
+    volumes:
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    ports:
+      - "1883:1883"
+
+  kali:
+    build: ./kali
+    container_name: kali
+    networks:
+      smarthome_net:
+        ipv4_address: 172.20.0.5
+    volumes:
+      - kali_data:/root/data
+    ports:
+      - "5901:5901"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    privileged: true
+
+networks:
+  smarthome_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  server_data:
+  client_data:
+  mosquitto_data:
+  mosquitto_log:
+  kali_data:
