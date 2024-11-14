@@ -5,7 +5,7 @@ services:
     build: ./server
     container_name: server
     networks:
-      smarthome_net:
+      smarthome_macvlan:
         ipv4_address: 172.20.0.2
     depends_on:
       - mosquitto
@@ -18,7 +18,7 @@ services:
     build: ./client
     container_name: client
     networks:
-      smarthome_net:
+      smarthome_macvlan:
         ipv4_address: 172.20.0.3
     depends_on:
       - mosquitto
@@ -29,7 +29,7 @@ services:
     build: ./mosquitto
     container_name: mosquitto
     networks:
-      smarthome_net:
+      smarthome_macvlan:
         ipv4_address: 172.20.0.4
     volumes:
       - mosquitto_data:/mosquitto/data
@@ -41,23 +41,21 @@ services:
     build: ./kali
     container_name: kali
     networks:
-      smarthome_net:
+      smarthome_macvlan:
         ipv4_address: 172.20.0.5
     volumes:
       - kali_data:/root/data
     ports:
-      - "5901:5901"
+      - "5901:5900"  # VNC-Port anpassen, falls erforderlich
     cap_add:
       - NET_ADMIN
       - NET_RAW
     privileged: true
 
 networks:
-  smarthome_net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
+  smarthome_macvlan:
+    external: true
+    name: smarthome_macvlan
 
 volumes:
   server_data:
