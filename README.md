@@ -1,4 +1,4 @@
-# Master Thesis: Sicherheitsanalyse von Smart Home Systemen: Exploration of the Potential and Limitations with Generative AI Models
+# Master Thesis: Security analysis of smart home systems: Exploration of the Potential and Limitations with Generative AI Models
 
 ## Project Overview
 

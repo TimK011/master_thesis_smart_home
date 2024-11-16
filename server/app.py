@@ -1,12 +1,18 @@
 from flask import Flask, jsonify, request
 import paho.mqtt.client as mqtt
 
+
+# Vulnerability 5: Using Outdated Libraries
 # Initialize Flask app
 app = Flask(__name__)
 
 # Define MQTT broker address and port
 MQTT_BROKER = 'mosquitto'
 MQTT_PORT = 1883
+
+# Hardcoded MQTT Credentials (Vulnerability 3)
+MQTT_USERNAME = 'admin'
+MQTT_PASSWORD = 'password123'
 
 # Define MQTT topics for commands and status
 MQTT_TOPIC_COMMAND = 'smart_home/light'
@@ -26,21 +32,21 @@ def on_message(client, userdata, msg):
     global light_status
     # Decode the message payload
     action = msg.payload.decode()
-    if action in ['on', 'off']:
-        # Update the light status
-        light_status = action
-        print(f"Light status updated: {light_status}")
-    else:
-        print("Unknown status message:", action)
+    # Vulnerability 4: Lack of Input Validation in MQTT message handling
+    light_status = action
+    print(f"Light status updated: {light_status}")
 
 # Create an MQTT client instance
 client = mqtt.Client()
+
+# Vulnerability 3: Set MQTT credentials
+client.username_pw_set(MQTT_USERNAME, MQTT_PASSWORD)
 
 # Assign the callback functions
 client.on_connect = on_connect
 client.on_message = on_message
 
-# Connect to the MQTT broker
+# Vulnerability 2: Connect to the MQTT broker without encryption
 client.connect(MQTT_BROKER, MQTT_PORT, 60)
 
 # Start the MQTT loop in a separate thread
@@ -56,13 +62,11 @@ def get_status():
 @app.route('/light', methods=['POST'])
 def set_light():
     action = request.json.get('action')
-    if action in ['on', 'off']:
-        # Publish the action to the command topic
-        client.publish(MQTT_TOPIC_COMMAND, action)
-        return jsonify({'status': 'success', 'action': action})
-    else:
-        return jsonify({'status': 'error', 'message': 'Invalid action'}), 400
+    # Vulnerability 4: Lack of Input Validation in REST API
+    # Removed validation check
+    client.publish(MQTT_TOPIC_COMMAND, action)
+    return jsonify({'status': 'success', 'action': action})
 
-# Run the Flask app
+# Vulnerability 4: Run the Flask app with debug mode enabled
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

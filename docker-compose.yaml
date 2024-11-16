@@ -10,7 +10,7 @@ services:
     volumes:
       - server_data:/app/data
     ports:
-      - "5000:5000"
+      - "5001:5000" # Vulnerability 1: Open port accessible without restrictions
 
   client:
     build: ./client
@@ -30,10 +30,12 @@ services:
       smarthome_macvlan:
         ipv4_address: 172.20.0.4
     volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/mosquitto.conf
+      - ./mosquitto/passwordfile:/mosquitto/passwordfile
       - mosquitto_data:/mosquitto/data
       - mosquitto_log:/mosquitto/log
     ports:
-      - "1883:1883"
+      - "1883:1883" # Vulnerability 1: Open port accessible without restrictions
 
   kali:
     build: ./kali
@@ -44,7 +46,7 @@ services:
     volumes:
       - kali_data:/root/data
     ports:
-      - "5901:5900"  # VNC-Port anpassen, falls erforderlich
+      - "5901:5900" # VNC
     cap_add:
       - NET_ADMIN
       - NET_RAW

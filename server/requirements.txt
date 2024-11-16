@@ -1,2 +1,7 @@
-flask
-paho-mqtt
+# Vulnerability 5: Using Outdated Libraries
+Flask==0.12.2          # Known vulnerability: CVE-2018-1000656
+Werkzeug==0.16.1
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+itsdangerous==1.1.0
+paho-mqtt==1.3.1
