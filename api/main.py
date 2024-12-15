@@ -9,26 +9,29 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Konfigurieren Sie das Logging
 logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 @app.post("/api/v1/analyze")
 async def analyze(
     prompt: str = Form(...),
     file: UploadFile = File(...),
-    provider: str = Query("openai", description="AI provider name (e.g. openai or gemini)")
+    provider: str = Query("openai", description="AI provider name (e.g. openai or gemini)"),
+    file_format: str = Query(None, description="Optional: Specify the file format (e.g. json, xml, txt)")
 ):
-    logging.info("Received analyze request")
+    logger.info("Received analyze request")
+    logger.info(f"Filename: {file.filename}, Provider: {provider}, File_Format: {file_format}")
 
-    file_data = await load_file(file)
+    file_data = await load_file(file, file_format=file_format)
     if file_data is None:
-        logging.error("Failed to parse file as JSON")
-        raise HTTPException(status_code=400, detail="Could not parse the provided file as JSON.")
+        logger.error("Failed to parse file")
+        raise HTTPException(status_code=400, detail="Could not parse the provided file.")
 
-    logging.info(f"Analyzing with provider: {provider}")
+    logger.info("File parsed successfully. Sending data to AI provider.")
     result = await analyze_with_ai(prompt, file_data, provider)
-    logging.info("Analysis complete")
+    logger.info("Analysis complete")
     return {"analysis_result": result}
+
 
 @app.get("/health")
 async def health_check():
