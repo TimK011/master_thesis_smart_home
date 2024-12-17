@@ -1,22 +1,25 @@
 #!/bin/bash
+
+# Set the USER environment variable to root
 export USER=root
 
-# Starten des SSH-Dienstes
+# Start the SSH service
 service ssh start
 
-# VNC-Konfiguration
+# Configure VNC (Virtual Network Computing)
 mkdir -p /root/.vnc
+# Set the VNC password to 'kaliadmin' and secure the password file
 echo "kaliadmin" | vncpasswd -f > /root/.vnc/passwd
 chmod 600 /root/.vnc/passwd
 
-# Setzen des eth0 Netzwerkinterfaces in den Promiscuous Mode
+# Set the eth0 network interface to promiscuous mode to capture all network traffic
 ip link set eth0 promisc on
 
-# Starten des VNC-Servers auf Display :1 mit einer Auflösung von 1280x800 und Farbtiefe 24
+# Start the VNC server on display :1 with specified geometry and color depth
 vncserver :1 -geometry 1280x800 -depth 24 &
 
-# Optional: Starten von Burp Suite automatisch
- java -jar /opt/burp/burpsuite_community.jar &
+# Optional: Automatically start Burp Suite (a web vulnerability scanner)
+java -jar /opt/burp/burpsuite_community.jar &
 
-# Keep the script running indefinitely
+# Keep the script running indefinitely to prevent the container from exiting
 tail -f /dev/null

@@ -7,12 +7,14 @@ import os
 import csv
 from io import StringIO
 
+# Configure logging for this module
 logger = logging.getLogger(__name__)
 
+# Define the supported file formats for parsing
 async def load_file(file: UploadFile, file_format: Optional[str] = None) -> Optional[Dict[str, Any]]:
     content = await file.read()
 
-    # Wenn kein Format angegeben ist, versuchen wir aus der Dateiendung das Format abzuleiten
+    # Determine the file format based on the provided parameter or file extension
     if not file_format:
         _, ext = os.path.splitext(file.filename)
         ext = ext.lower().strip('.')
@@ -29,10 +31,11 @@ async def load_file(file: UploadFile, file_format: Optional[str] = None) -> Opti
     elif file_format == "csv":
         return parse_csv(content)
     else:
-        # Unbekanntes Format
+        # Unsupported file format
         logger.error(f"Unknown or unsupported file format: {file_format}")
         return None
 
+# Parse the file content based on the format
 def parse_json(content: bytes) -> Optional[Dict[str, Any]]:
     try:
         return json.loads(content)
@@ -40,6 +43,7 @@ def parse_json(content: bytes) -> Optional[Dict[str, Any]]:
         logger.error(f"JSON parsing error: {e}")
         return None
 
+# Parse the XML content into a dictionary
 def parse_xml(content: bytes) -> Optional[Dict[str, Any]]:
     try:
         root = ET.fromstring(content)
@@ -48,6 +52,7 @@ def parse_xml(content: bytes) -> Optional[Dict[str, Any]]:
         logger.error(f"XML parsing error: {e}")
         return None
 
+# Convert an XML element to a dictionary
 def xml_to_dict(element: ET.Element) -> Dict[str, Any]:
     node_dict = {element.tag: {} if element.attrib else None}
     children = list(element)
@@ -72,10 +77,12 @@ def xml_to_dict(element: ET.Element) -> Dict[str, Any]:
             node_dict[element.tag] = text
     return node_dict
 
+# Parse the text content into a list of lines
 def parse_text(content: bytes) -> Dict[str, Any]:
     lines = content.decode('utf-8', errors='replace').splitlines()
     return {"lines": lines}
 
+# Parse the CSV content into a list of rows
 def parse_csv(content: bytes) -> Optional[Dict[str, Any]]:
     decoded_content = content.decode('utf-8', errors='replace')
     reader = csv.reader(StringIO(decoded_content))

@@ -37,20 +37,20 @@ services:
     ports:
       - "1883:1883" # Vulnerability 1: Open port accessible without restrictions
 
-  kali:
-    build: ./kali
-    container_name: kali
-    networks:
-      smarthome_macvlan:
-        ipv4_address: 172.20.0.5
-    volumes:
-      - kali_data:/root/data
-    ports:
-      - "5901:5900" # VNC
-    cap_add:
-      - NET_ADMIN
-      - NET_RAW
-    privileged: true
+#  kali:
+#    build: ./kali
+#    container_name: kali
+#    networks:
+#      smarthome_macvlan:
+#        ipv4_address: 172.20.0.5
+#    volumes:
+#      - kali_data:/root/data
+#    ports:
+#      - "5901:5900" # VNC
+#    cap_add:
+#      - NET_ADMIN
+#      - NET_RAW
+#    privileged: true
 
   api:
     build: ./api
