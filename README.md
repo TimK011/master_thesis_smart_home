@@ -10,7 +10,7 @@ The project includes the following components:
 - **Client Container**: Simulates a smart home light bulb, which can be controlled by the server through an MQTT broker.
 - **Mosquitto Container**: An MQTT broker (Mosquitto) that facilitates communication between the server and client.
 - **Kali Linux Container**: Used for security testing, equipped with a selection of security tools (e.g., Nmap, Wireshark) and accessible via a VNC-enabled graphical interface.
-- **AI API: Located in the api folder, it enables communication with AI models (OpenAI or Gemini) to process and analyze scan results.
+- **AI API**: Located in the api folder, it enables communication with AI models (OpenAI or Gemini) to process and analyze scan results.
 
    Additionally, a Scans & Results folder stores all scans and results from tools like Wireshark and Nmap.
   
