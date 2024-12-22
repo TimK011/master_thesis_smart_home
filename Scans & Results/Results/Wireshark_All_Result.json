@@ -1,0 +1,100 @@
+{
+  "vulnerabilities": [
+    {
+      "vulnerability_name": "Unencrypted MQTT Communication",
+      "description": "The network scan data shows MQTT traffic with the default port 1883, but no indication of TLS/SSL encryption. This means the data transmitted, including credentials, are sent in clear text making it susceptible to eavesdropping.",
+      "severity": "high",
+      "remediation": "Implement TLS/SSL encryption for MQTT communication. Use MQTT port 8883 for secured connections, configure certificates to clients and broker, and disable unencrypted port 1883."
+    },
+    {
+      "vulnerability_name": "Default Credentials in MQTT",
+      "description": "The MQTT payload contains credentials with the username 'admin' and password 'password123'. Using default credentials like this is a high security risk, and can lead to unauthorized access and control over the system.",
+      "severity": "high",
+      "remediation": "Change the default username and password immediately. Enforce strong, complex passwords and implement proper user authentication and authorization mechanism. Store credentials securely and not in plain text in configurations or code."
+    },
+    {
+      "vulnerability_name": "Lack of IPsec or VPN",
+      "description": "The data shows plain TCP/IP traffic without IPsec or VPN. All traffic is routed within the network, making it vulnerable to interception in the network.",
+      "severity": "medium",
+      "remediation": "Implement IPsec or a VPN solution to encrypt all traffic on the network. This will protect sensitive data by encrypting it from source to destination."
+    },
+    {
+      "vulnerability_name": "Clear text TCP traffic",
+      "description": "The data captures TCP traffic that isn't encrypted, exposing data being transferred to potential eavesdropping or manipulation.",
+      "severity": "medium",
+      "remediation": "Implement encryption protocols such as TLS/SSL for TCP based communications. Use VPN or IPsec to encrypt traffic on the transport level."
+    },
+    {
+      "vulnerability_name": "Unencrypted Credentials in MQTT",
+      "description": "The MQTT data contains username and password in clear text. This exposes the credentials to anyone monitoring the network.",
+      "severity": "high",
+      "remediation": "Use TLS/SSL to encrypt MQTT traffic, and consider using more secure authentication methods."
+    },
+    {
+      "vulnerability_name": "Cleartext HTTP Request",
+      "description": "The HTTP request to /status is transmitted in cleartext. This allows an attacker to intercept the data in transit.",
+      "severity": "medium",
+      "remediation": "Use HTTPS to encrypt HTTP traffic."
+    },
+    {
+      "vulnerability_name": "Lack of TCP Keep Alive",
+      "description": "The TCP packets don't show any keep-alive packets, which could lead to hanging connections.",
+      "severity": "low",
+      "remediation": "Configure TCP Keep-Alive settings at the OS or application level."
+    },
+    {
+      "vulnerability_name": "Cleartext HTTP Traffic",
+      "description": "The network scan shows HTTP traffic with JSON payload transmitted without encryption. This is a risk as data is transmitted in cleartext making it vulnerable to interception.",
+      "severity": "medium",
+      "remediation": "Implement HTTPS to encrypt all HTTP traffic, ensuring that sensitive information is protected during transit. Additionally review access controls on the network."
+    },
+    {
+      "vulnerability_name": "Insecure MQTT",
+      "description": "MQTT messages are transmitted without encryption. This is a risk since the messages can be intercepted, potentially compromising the smart home devices.",
+      "severity": "medium",
+      "remediation": "Implement TLS for MQTT to encrypt the data being transmitted, securing the communication channel between the devices. Additionally review access controls on the network."
+    },
+    {
+      "vulnerability_name": "Unencrypted TCP Communication",
+      "description": "The TCP communication is unencrypted which is a security risk as the data can be intercepted during transmit.",
+      "severity": "medium",
+      "remediation": "Implement TLS/SSL encryption on the relevant TCP connections. Review firewall rules and network access controls to minimize access points."
+    },
+    {
+      "vulnerability_name": "Cleartext Transmission of MQTT Data",
+      "description": "The network scan shows MQTT data transmitted without encryption, indicated by the presence of MQTT protocol fields in the packet data, including the topic and payload, which could expose sensitive information.",
+      "severity": "medium",
+      "remediation": "Implement MQTT over TLS/SSL to encrypt the communication channel, ensuring data confidentiality and integrity."
+    },
+    {
+      "vulnerability_name": "Unencrypted HTTP communication",
+      "description": "The network scan shows HTTP data transmitted without encryption. This can expose sensitive information contained in requests and responses.",
+      "severity": "medium",
+      "remediation": "Enforce HTTPS communication to encrypt the data exchanged, thus preventing eavesdropping and tampering."
+    },
+    {
+      "vulnerability_name": "Lack of TCP flag security",
+      "description": "The scan data includes TCP flags like SYN, ACK, PUSH, and FIN without any security measures, such as TCP-MD5, which could allow for various attacks like TCP hijacking.",
+      "severity": "medium",
+      "remediation": "Implement TCP-MD5 or equivalent TCP security measures to authenticate TCP connections and protect against man-in-the-middle attacks."
+    },
+    {
+      "vulnerability_name": "Unencrypted HTTP Traffic",
+      "description": "The network scan data shows HTTP traffic without encryption (no HTTPS), which could expose sensitive information transmitted over the network, such as usernames, passwords, and API keys.",
+      "severity": "medium",
+      "remediation": "Implement HTTPS to encrypt all HTTP traffic. Use valid SSL/TLS certificates. Ensure all applications and services use HTTPS instead of HTTP."
+    },
+    {
+      "vulnerability_name": "Cleartext MQTT Communication",
+      "description": "MQTT traffic observed without any encryption, which could expose sensitive data and control commands being sent over MQTT to unauthorized parties.",
+      "severity": "medium",
+      "remediation": "Implement TLS encryption for MQTT connections. This protects the data and commands being transmitted. Ensure clients and brokers use encrypted connections."
+    },
+    {
+      "vulnerability_name": "Use of Weak/Default Credentials",
+      "description": "The POST request to the server indicates an action with the value off. This could indicate a control system and default/weak credentials can lead to complete takeover of the system.",
+      "severity": "high",
+      "remediation": "Enforce strong password policies for all accounts. Implement multi-factor authentication (MFA) where possible, and regularly review and revoke access as necessary. This should apply to all devices and systems within the scanned network."
+    }
+  ]
+}
