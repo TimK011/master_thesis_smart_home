@@ -10,7 +10,10 @@ The project includes the following components:
 - **Client Container**: Simulates a smart home light bulb, which can be controlled by the server through an MQTT broker.
 - **Mosquitto Container**: An MQTT broker (Mosquitto) that facilitates communication between the server and client.
 - **Kali Linux Container**: Used for security testing, equipped with a selection of security tools (e.g., Nmap, Wireshark) and accessible via a VNC-enabled graphical interface.
+- **AI API**: Located in the api folder, it enables communication with AI models (OpenAI or Gemini) to process and analyze scan results.
 
+   Additionally, a Scans & Results folder stores all scans and results from tools like Wireshark and Nmap.
+  
 ## Features
 
 - Server and client communication over MQTT
@@ -63,18 +66,36 @@ Follow these steps to configure the macvlan network:
 
 ## Project Structure
 
+
 ```text
-├── server/
-│   ├── app.py           # REST API for bulb control
-│   └── Dockerfile       # Dockerfile for the server container
+├── api/
+│   ├── __init__.py
+│   ├── ai_service.py       # Service for interacting with AI models
+│   ├── config.py           # Configuration file
+│   ├── Dockerfile          # Dockerfile for the API
+│   ├── main.py             # Entry point for the API
+│   ├── requirements.txt    # Python dependencies
+│   ├── schemas.py          # API schemas
+│   └── utils.py            # Utility functions
 ├── client/
-│   ├── client.py        # Code to simulate the light bulb
-│   └── Dockerfile       # Dockerfile for the client container
+│   ├── client.py           # Code to simulate the light bulb
+│   ├── Dockerfile          # Dockerfile for the client container
+│   └── requirements.txt    # Python dependencies
+├── server/
+│   ├── app.py              # REST API for bulb control
+│   ├── Dockerfile          # Dockerfile for the server container
+│   └── requirements.txt    # Python dependencies
 ├── mosquitto/
-│   └── Dockerfile       # Dockerfile for the Mosquitto MQTT broker
+│   ├── mosquitto.conf      # Configuration for Mosquitto
+│   └── passwordfile        # Credentials for Mosquitto
 ├── kali/
-│   └── Dockerfile       # Dockerfile for the Kali Linux container
-└── README.md            # Project documentation
+│   ├── startup.sh          # Initialization script for Kali Linux
+│   └── Dockerfile          # Dockerfile for the Kali Linux container
+├── Scans & Results/        # Wireshark & Nmap Scans from the project
+│   ├── Results/            # Processed results of the Scans
+├── wirehshark_to_csv.py    # Script to convert Wireshark scans to CSV
+├── docker-compose.yaml     # Compose file for orchestrating containers
+└── README.md               # Project documentation
 ```
 
 ## Using the API with Postman
