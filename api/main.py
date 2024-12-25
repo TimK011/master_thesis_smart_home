@@ -20,8 +20,8 @@ logger = logging.getLogger(__name__)
 async def analyze(
     prompt: str = Form(...),
     file: UploadFile = File(...),
-    provider: str = Query("openai", description="AI provider name (openai or gemini)"),
-    file_format: str = Query(None, description="Optional: Specify the file format (json, xml, txt, csv)")
+    provider: str = Query(None, description="AI provider name (openai or gemini)"),
+    file_format: str = Query(None, description="Specify the file format (json, xml, txt, csv)")
 ):
     # Log the incoming request
     logger.info("Received analyze request")

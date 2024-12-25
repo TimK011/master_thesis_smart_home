@@ -1,14 +1,14 @@
 import logging
-from fastapi import HTTPException
-from config import OPENAI_API_KEY, GEMINI_API_KEY
 import httpx
-
-# Import the Gemini SDK for AI interactions
+from fastapi import HTTPException
 from google import genai
+from config import OPENAI_API_KEY, GEMINI_API_KEY
+
 
 # Configure logging for this module
 logger = logging.getLogger(__name__)
 
+#  Define the main endpoint for analyzing data using AI
 async def analyze_with_ai(prompt: str, file_data: dict, provider: str) -> str:
     """
     Analyze the provided data using the specified AI provider.
@@ -24,8 +24,9 @@ async def analyze_with_ai(prompt: str, file_data: dict, provider: str) -> str:
     Raises:
         HTTPException: If there is an error communicating with the AI provider or if the provider is unsupported.
     """
+
+    # Check if the provider is OpenAI
     if provider == "openai":
-        # Use OpenAI as the AI provider
         api_key = OPENAI_API_KEY
         endpoint = "https://api.openai.com/v1/chat/completions"
         payload = {
@@ -60,10 +61,10 @@ async def analyze_with_ai(prompt: str, file_data: dict, provider: str) -> str:
                 logger.error(f"Error calling AI provider: {e}")
                 raise HTTPException(status_code=500, detail="Error communicating with AI provider")
 
+    # Check if the provider is Gemini
     elif provider == "gemini":
         # Use Gemini as the AI provider
         if not GEMINI_API_KEY:
-            # Check if the Gemini API key is configured
             logger.error("No Gemini API Key provided.")
             raise HTTPException(status_code=500, detail="Gemini API key not configured.")
 

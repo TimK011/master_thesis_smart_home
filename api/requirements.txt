@@ -4,3 +4,4 @@ httpx==0.24.0
 python-dotenv==1.0.0
 python-multipart==0.0.6
 google-genai
+google-generativeai
