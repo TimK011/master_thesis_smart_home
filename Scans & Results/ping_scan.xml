@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Mon Dec 23 00:04:06 2024 as: nmap -sn -oA &quot;Scans &amp; Results/ping_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4 -->
+<nmaprun scanner="nmap" args="nmap -sn -oA &quot;Scans &amp; Results/ping_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4" start="1734908646" startstr="Mon Dec 23 00:04:06 2024" version="7.94SVN" xmloutputversion="1.05">
+<verbose level="0"/>
+<debugging level="0"/>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="1773" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="1798" rttvar="5000" to="100000"/>
+</host>
+<host><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<times srtt="2045" rttvar="5000" to="100000"/>
+</host>
+<runstats><finished time="1734908646" timestr="Mon Dec 23 00:04:06 2024" summary="Nmap done at Mon Dec 23 00:04:06 2024; 3 IP addresses (3 hosts up) scanned in 0.59 seconds" elapsed="0.59" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>
