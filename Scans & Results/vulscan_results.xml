@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Mon Dec 23 00:14:34 2024 as: nmap -sV -p- -&#45;script=vulscan/vulscan.nse -oA &quot;Scans &amp; Results/vulscan_results&quot; 172.20.0.2 172.20.0.3 172.20.0.4 -->
+<nmaprun scanner="nmap" args="nmap -sV -p- -&#45;script=vulscan/vulscan.nse -oA &quot;Scans &amp; Results/vulscan_results&quot; 172.20.0.2 172.20.0.3 172.20.0.4" start="1734909274" startstr="Mon Dec 23 00:14:34 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1734909274" endtime="1734909375"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65534">
+<extrareasons reason="reset" count="65534" proto="tcp" ports="1-4999,5001-65535"/>
+</extraports>
+<port protocol="tcp" portid="5000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" product="Werkzeug httpd" version="0.16.1" extrainfo="Python 3.9.21" method="probed" conf="10"><cpe>cpe:/a:python:python:3.9.21</cpe></service><script id="vulscan" output="VulDB - https://vuldb.com:&#xa;No findings&#xa;&#xa;MITRE CVE - https://cve.mitre.org:&#xa;No findings&#xa;&#xa;SecurityFocus - https://www.securityfocus.com/bid/:&#xa;No findings&#xa;&#xa;IBM X-Force - https://exchange.xforce.ibmcloud.com:&#xa;No findings&#xa;&#xa;Exploit-DB - https://www.exploit-db.com:&#xa;No findings&#xa;&#xa;OpenVAS (Nessus) - http://www.openvas.org:&#xa;No findings&#xa;&#xa;SecurityTracker - https://www.securitytracker.com:&#xa;No findings&#xa;&#xa;OSVDB - http://www.osvdb.org:&#xa;No findings&#xa;&#xa;"/><script id="http-server-header" output="Werkzeug/0.16.1 Python/3.9.21"><elem>Werkzeug/0.16.1 Python/3.9.21</elem>
+</script></port>
+</ports>
+<times srtt="44" rttvar="8" to="100000"/>
+</host>
+<host starttime="1734909274" endtime="1734909368"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65535">
+<extrareasons reason="reset" count="65535" proto="tcp" ports="1-65535"/>
+</extraports>
+</ports>
+<times srtt="109" rttvar="125" to="100000"/>
+</host>
+<host starttime="1734909274" endtime="1734909375"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65534">
+<extrareasons reason="reset" count="65534" proto="tcp" ports="1-1882,1884-65535"/>
+</extraports>
+<port protocol="tcp" portid="1883"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="mqtt" method="probed" conf="10"/><script id="mqtt-subscribe" output="Connection rejected: Not Authorized"><elem key="ERROR">Connection rejected: Not Authorized</elem>
+</script></port>
+</ports>
+<times srtt="74" rttvar="59" to="100000"/>
+</host>
+<runstats><finished time="1734909375" timestr="Mon Dec 23 00:16:15 2024" summary="Nmap done at Mon Dec 23 00:16:15 2024; 3 IP addresses (3 hosts up) scanned in 101.20 seconds" elapsed="101.20" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>

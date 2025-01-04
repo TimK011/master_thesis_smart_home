@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Mon Dec 23 00:04:07 2024 as: nmap -sS -p- -T4 -oA &quot;Scans &amp; Results/tcp_full_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4 -->
+<nmaprun scanner="nmap" args="nmap -sS -p- -T4 -oA &quot;Scans &amp; Results/tcp_full_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4" start="1734908647" startstr="Mon Dec 23 00:04:07 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1734908647" endtime="1734908712"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65534">
+<extrareasons reason="reset" count="65534" proto="tcp" ports="1-4999,5001-65535"/>
+</extraports>
+<port protocol="tcp" portid="5000"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="upnp" method="table" conf="3"/></port>
+</ports>
+<times srtt="39" rttvar="0" to="100000"/>
+</host>
+<host starttime="1734908647" endtime="1734908712"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65535">
+<extrareasons reason="reset" count="65535" proto="tcp" ports="1-65535"/>
+</extraports>
+</ports>
+<times srtt="38" rttvar="1" to="100000"/>
+</host>
+<host starttime="1734908647" endtime="1734908712"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="65534">
+<extrareasons reason="reset" count="65534" proto="tcp" ports="1-1882,1884-65535"/>
+</extraports>
+<port protocol="tcp" portid="1883"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="mqtt" method="table" conf="3"/></port>
+</ports>
+<times srtt="50" rttvar="23" to="100000"/>
+</host>
+<runstats><finished time="1734908712" timestr="Mon Dec 23 00:05:12 2024" summary="Nmap done at Mon Dec 23 00:05:12 2024; 3 IP addresses (3 hosts up) scanned in 65.55 seconds" elapsed="65.55" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>

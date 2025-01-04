@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Nmap 7.94SVN scan initiated Mon Dec 23 00:14:27 2024 as: nmap -sV -&#45;script=mqtt-subscribe -p1883 -oA &quot;Scans &amp; Results/mqtt_nse_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4 -->
+<nmaprun scanner="nmap" args="nmap -sV -&#45;script=mqtt-subscribe -p1883 -oA &quot;Scans &amp; Results/mqtt_nse_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4" start="1734909267" startstr="Mon Dec 23 00:14:27 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="1" services="1883"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1734909268" endtime="1734909268"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="1883"><state state="closed" reason="reset" reason_ttl="64"/><service name="mqtt" method="table" conf="3"/></port>
+</ports>
+<times srtt="978" rttvar="4016" to="100000"/>
+</host>
+<host starttime="1734909268" endtime="1734909268"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="1883"><state state="closed" reason="reset" reason_ttl="64"/><service name="mqtt" method="table" conf="3"/></port>
+</ports>
+<times srtt="813" rttvar="3932" to="100000"/>
+</host>
+<host starttime="1734909268" endtime="1734909274"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="1883"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="mqtt" method="probed" conf="10"/><script id="mqtt-subscribe" output="Connection rejected: Not Authorized"><elem key="ERROR">Connection rejected: Not Authorized</elem>
+</script></port>
+</ports>
+<times srtt="668" rttvar="3914" to="100000"/>
+</host>
+<runstats><finished time="1734909274" timestr="Mon Dec 23 00:14:34 2024" summary="Nmap done at Mon Dec 23 00:14:34 2024; 3 IP addresses (3 hosts up) scanned in 6.55 seconds" elapsed="6.55" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>

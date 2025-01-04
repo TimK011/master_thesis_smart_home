@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Mon Dec 23 00:14:27 2024 as: nmap -sV -&#45;script=http*,ssl*,upnp-info -p80,443,1900 -oA &quot;Scans &amp; Results/specialized_nse_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4 -->
+<nmaprun scanner="nmap" args="nmap -sV -&#45;script=http*,ssl*,upnp-info -p80,443,1900 -oA &quot;Scans &amp; Results/specialized_nse_scan&quot; 172.20.0.2 172.20.0.3 172.20.0.4" start="1734909267" startstr="Mon Dec 23 00:14:27 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="3" services="80,443,1900"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<prescript><script id="http-robtex-shared-ns" output="*TEMPORARILY DISABLED* due to changes in Robtex&apos;s API. See https://www.robtex.com/api/"/></prescript><hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1734909267" endtime="1734909267"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.2" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:02" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="closed" reason="reset" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="closed" reason="reset" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="1900"><state state="closed" reason="reset" reason_ttl="64"/><service name="upnp" method="table" conf="3"/></port>
+</ports>
+<times srtt="175" rttvar="2204" to="100000"/>
+</host>
+<host starttime="1734909267" endtime="1734909267"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.3" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:03" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="closed" reason="reset" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="closed" reason="reset" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="1900"><state state="closed" reason="reset" reason_ttl="64"/><service name="upnp" method="table" conf="3"/></port>
+</ports>
+<times srtt="728" rttvar="2598" to="100000"/>
+</host>
+<host starttime="1734909267" endtime="1734909267"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="172.20.0.4" addrtype="ipv4"/>
+<address addr="02:42:AC:14:00:04" addrtype="mac"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="80"><state state="closed" reason="reset" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="443"><state state="closed" reason="reset" reason_ttl="64"/><service name="https" method="table" conf="3"/></port>
+<port protocol="tcp" portid="1900"><state state="closed" reason="reset" reason_ttl="64"/><service name="upnp" method="table" conf="3"/></port>
+</ports>
+<times srtt="222" rttvar="2235" to="100000"/>
+</host>
+<runstats><finished time="1734909267" timestr="Mon Dec 23 00:14:27 2024" summary="Nmap done at Mon Dec 23 00:14:27 2024; 3 IP addresses (3 hosts up) scanned in 0.69 seconds" elapsed="0.69" exit="success"/><hosts up="3" down="0" total="3"/>
+</runstats>
+</nmaprun>
