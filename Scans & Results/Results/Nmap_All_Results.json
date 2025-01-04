@@ -19,19 +19,19 @@
   },
   {
     "vulnerability_name": "Potentially Unsecured HTTP Service",
-    "description": "The scan indicates that HTTP (port 80) is closed auf den Zielmaschinen. Wenn dieser Dienst geöffnet und unverschlüsselt wäre, könnte dies zu Man-in-the-Middle-Angriffen und Abhören führen.",
+    "description": "The scan indicates that HTTP (port 80) is closed on the target machines. If this service was open and unencrypted, it could lead to man-in-the-middle attacks and eavesdropping.",
     "severity": "medium",
     "remediation": "Ensure that any HTTP service is properly secured with HTTPS or not exposed unless required. Regularly update software to patch any vulnerabilities."
   },
   {
     "vulnerability_name": "Potentially Unsecured HTTPS Service",
-    "description": "The scan indicates that HTTPS (port 443) is closed auf den Zielmaschinen. Wenn dieser Dienst geöffnet wäre, könnte eine unsachgemäße Konfiguration zu TLS/SSL-Schwachstellen führen.",
+    "description": "The scan indicates that HTTPS (port 443) is closed on the target machines. If this service were open, improper configuration could result in TLS/SSL vulnerabilities.",
     "severity": "medium",
     "remediation": "Ensure that the HTTPS service uses strong TLS configurations, regularly update the server software and libraries, and implement proper certificate management. Always ensure that HTTPS is enabled and enforced where sensitive data is transmitted."
   },
   {
     "vulnerability_name": "Potentially Unsecured UPnP Service",
-    "description": "The scan indicates that UPnP (port 1900) is closed auf den Zielmaschinen. Wenn dieser Dienst geöffnet wäre, können Fehlkonfigurationen in UPnP interne Geräte und Dienste dem externen Netzwerk aussetzen, was unautorisierten Zugriff und Kontrolle dieser Geräte ermöglichen könnte.",
+    "description": "The scan indicates that UPnP (port 1900) is closed on the target machines. If this service were open, misconfigurations in UPnP can expose internal devices and services to the external network, which could allow for unauthorized access and control of those devices.",
     "severity": "medium",
     "remediation": "Disable UPnP on devices that do not require it. If UPnP is needed, ensure it is implemented according to security best practices and restrict access to authorized networks only. Patch devices with known UPnP vulnerabilities and regularly monitor for abnormal activity."
   },
@@ -55,7 +55,7 @@
   },
   {
     "vulnerability_name": "Slowloris DOS attack",
-    "description": "Slowloris versucht, viele Verbindungen zum Ziel-Webserver offen zu halten und so lange wie möglich aufrechtzuerhalten. Es erreicht dies, indem es Verbindungen zum Ziel-Webserver öffnet und eine teilweise Anfrage sendet. Dadurch werden die Ressourcen des HTTP-Servers ausgelaugt, was zu einem Denial of Service führt.",
+    "description": "Slowloris tries to keep many connections to the target web server open and hold them open as long as possible. It accomplishes this by opening connections to the target web server and sending a partial request. By doing so, it starves the http server's resources causing Denial Of Service.",
     "severity": "high",
     "remediation": "Implement connection limits and timeouts, Use a reverse proxy or load balancer, Configure web server to handle slow connections, consider using a Web Application Firewall (WAF)."
   },
