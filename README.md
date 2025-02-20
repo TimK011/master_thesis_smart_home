@@ -72,9 +72,19 @@ docker network create -d macvlan \
   -o parent=enp0s3 smarthome_macvlan
 ```
 
+3. **Enabling Host-to-Container Communication**
+
+   By default, the host cannot communicate with containers on a macvlan network, because the communication in the macvlan is isolated. To control the smart light bulb from your host via a POST request, create an additional macvlan interface on your host:
+
+```bash
+ip link add macvlan_host link enp0s3 type macvlan mode bridge
+ip addr add 172.20.0.1/24 dev macvlan_host
+ip link set macvlan_host up
+```
+
 ## API Configuration
 
-The AI API requires API keys for the generative AI models. These keys must be provided via environment variables. In the api folder, there is a config.py file that loads the API keys from a .env file. Create a .env file in the api folder with the following content:
+The AI API requires API keys for the generative AI models. These keys must be provided via environment variables. In the api folder, there is a config.py file that loads the API keys from a .env file. Create a .env file in the root directory of the repository with the following content:
 
  ```bash
 OPENAI_API_KEY=your-openai-api-key
