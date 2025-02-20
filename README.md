@@ -88,7 +88,7 @@ Replace your-openai-api-key and your-gemini-api-key with your actual API keys.
 
 1. **Clone the Repository**  
  ```bash
-git clone (https://github.com/TimK011/master_thesis_smart_home.git
+git clone https://github.com/TimK011/master_thesis_smart_home.git
 cd master_thesis_smart_home
 ```
 
