@@ -3,7 +3,7 @@ FROM kalilinux/kali-rolling
 
 ENV USER=root
 
-# Installieren der notwendigen Pakete inklusive Java und Burp Suite Abhängigkeiten
+# Install necessary packages including Java and Burp Suite dependencies
 RUN apt-get update && apt-get install -y \
     nmap \
     wireshark \
@@ -20,25 +20,23 @@ RUN apt-get update && apt-get install -y \
     openjdk-11-jre \
     && rm -rf /var/lib/apt/lists/*
 
-# Erstellen eines Verzeichnisses für Burp Suite
+# Create a directory for Burp Suite
 RUN mkdir -p /opt/burp
 
-# Herunterladen der Burp Suite Community Edition
-# Hinweis: Stellen Sie sicher, dass die URL aktuell ist. Prüfen Sie die neueste Version auf der offiziellen [PortSwigger Burp Suite Downloadseite](https://portswigger.net/burp/releases/community)
+# Download the Burp Suite Community Edition
 RUN curl -L -o /opt/burp/burpsuite_community.jar https://portswigger.net/burp/releases/download?product=community&version=2023.12.1&type=Jar
 
-# Optional: Erstellen eines symbolischen Links für einfacheren Zugriff
+# Create a symbolic link for easier access
 RUN ln -s /opt/burp/burpsuite_community.jar /usr/local/bin/burpsuite
 
-# Kopieren des Startskripts
+# Copy the startup script
 COPY startup.sh /startup.sh
 RUN chmod +x /startup.sh
 
-# Exponieren der notwendigen Ports
+# Expose the necessary ports
 EXPOSE 5901 5000 1883 8080
 
-# Setzen des Arbeitsverzeichnisses
+# Set the working directory
 WORKDIR /opt/burp
 
-# Standardkommando
 CMD ["/startup.sh"]
