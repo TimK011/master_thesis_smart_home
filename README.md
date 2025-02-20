@@ -106,4 +106,61 @@ docker-compose up --build
 ```
 
 
+## Using the NMap Script
+
+**Nmap Scanning Script**  
+The provided Nmap script performs detailed network scans and vulnerability checks. It carries out:
+```bash
+    Ping Scan (Host Discovery)
+    Full TCP Port Scan (SYN)
+    Service & OS Detection
+    Basic Vulnerability Scan with Default NSE Scripts
+    Extended NSE Scans (HTTP, SSL, UPnP, MQTT)
+    Vulscan based Vulnerability Detection
+```
+
+**How to Use the Nmap Script:**
+
+1. **Make the Script Executable:**  
+ ```bash
+chmod +x your_nmap_script.sh
+```
+
+2. **Run the Script with Root Privileges:**  
+ ```bash
+sudo ./your_nmap_script.sh
+```    
+
+
+3. **Review the Results:**  
+Scan outputs are saved in the Scans & Results directory in multiple formats.
+
+
+## Using Wireshark to CSV Conversion Script
+
+The Wireshark script converts a PCAP file into CSV format suitable as input for the AI REST API.
+
+**How to Use the Wireshark to CSV Script:**
+
+1. **Prerequisites:**  
+
+- Ensure that TShark is installed. 
+- Set the variable tshark_path in the script to the full path of your TShark executable (e.g., /usr/bin/tshark).
+
+2. **Run the script from the command line with the following syntax:**
+
+ ```bash
+python3 wireshark_to_csv.py input.pcap output_base.csv
+```    
+- input.pcap: The PCAP file exported by Wireshark.
+- output_base.csv: The base name for the output CSV files (e.g., if you use output.csv, the script will generate output_1.csv, output_2.csv, etc.).
+   
+3. **Output:**
+  The script will generate 5 CSV files containing the converted data. Each CSV includes a header that maps short field names (e.g., f1, f2, ...) to the original field names.
+
+Example:
+
+ ```bash
+python3 wireshark_to_csv.py capture.pcap wireshark_output.csv
+```    
 
