@@ -70,4 +70,4 @@ volumes:
   client_data:
   mosquitto_data:
   mosquitto_log:
-  kali_data:
+#  kali_data:
