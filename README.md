@@ -100,9 +100,9 @@ docker-compose up --build
 3. **Interact with the REST API**
    The server container exposes its API on port 5001. You can use Postman or any other HTTP client to:
 ```bash
-    Check bulb status: GET /status
-    Turn on the bulb: POST /turn_on
-    Turn off the bulb: POST /turn_off
+Check bulb status: GET /status
+Turn on the bulb: POST /turn_on
+Turn off the bulb: POST /turn_off
 ```
 
 
@@ -111,12 +111,12 @@ docker-compose up --build
 **Nmap Scanning Script**  
 The provided Nmap script performs detailed network scans and vulnerability checks. It carries out:
 ```bash
-    Ping Scan (Host Discovery)
-    Full TCP Port Scan (SYN)
-    Service & OS Detection
-    Basic Vulnerability Scan with Default NSE Scripts
-    Extended NSE Scans (HTTP, SSL, UPnP, MQTT)
-    Vulscan based Vulnerability Detection
+Ping Scan (Host Discovery)
+Full TCP Port Scan (SYN)
+Service & OS Detection
+Basic Vulnerability Scan with Default NSE Scripts
+Extended NSE Scans (HTTP, SSL, UPnP, MQTT)
+Vulscan based Vulnerability Detection
 ```
 
 **How to Use the Nmap Script:**
