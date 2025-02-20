@@ -51,6 +51,8 @@ Before running the project, make sure that:
 
 - **Docker & Docker Compose** are installed on your system.
 - A **macvlan network** is set up to simulate a realistic network environment.
+- **Nmap** is installed
+- **Wireshark** and TShark is installed
   
 > **Note:** By default, Docker does not allow communication between the host and containers in a macvlan network. To enable this, an additional macvlan interface must be created on the host.
 
@@ -72,7 +74,7 @@ docker network create -d macvlan \
   -o parent=enp0s3 smarthome_macvlan
 ```
 
-3. **Enabling Host-to-Container Communication**
+3. **Enabling Host to Container Communication**
 
    By default, the host cannot communicate with containers on a macvlan network, because the communication in the macvlan is isolated. To control the smart light bulb from your host via a POST request, create an additional macvlan interface on your host:
 
@@ -133,12 +135,12 @@ Vulscan based Vulnerability Detection
 
 1. **Make the Script Executable:**  
  ```bash
-chmod +x your_nmap_script.sh
+chmod +x nmap_scan.sh
 ```
 
 2. **Run the Script with Root Privileges:**  
  ```bash
-sudo ./your_nmap_script.sh
+sudo ./nmap_scan.sh
 ```    
 
 
